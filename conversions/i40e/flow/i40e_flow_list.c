@@ -1,0 +1,1 @@
+TAILQ_HEAD(i40e_flow_list, rte_flow);

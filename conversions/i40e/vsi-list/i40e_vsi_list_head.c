@@ -1,0 +1,1 @@
+TAILQ_HEAD(i40e_vsi_list_head, i40e_vsi_list);

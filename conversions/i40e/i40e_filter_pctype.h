@@ -1,0 +1,36 @@
+int i40e_validate_input_set(enum i40e_filter_pctype pctype, enum rte_filter_type filter, uint64_t inset);
+
+#define I40E_FILTER_PCTYPE_INVALID 0
+#define I40E_FILTER_PCTYPE_MAX     64
+
+#define I40E_VALID_PCTYPE_X722(pctype) \
+	((pctype) == I40E_FILTER_PCTYPE_FRAG_IPV4 || \
+	(pctype) == I40E_FILTER_PCTYPE_NONF_IPV4_TCP || \
+	(pctype) == I40E_FILTER_PCTYPE_NONF_IPV4_TCP_SYN_NO_ACK || \
+	(pctype) == I40E_FILTER_PCTYPE_NONF_IPV4_UDP || \
+	(pctype) == I40E_FILTER_PCTYPE_NONF_UNICAST_IPV4_UDP || \
+	(pctype) == I40E_FILTER_PCTYPE_NONF_MULTICAST_IPV4_UDP || \
+	(pctype) == I40E_FILTER_PCTYPE_NONF_IPV4_SCTP || \
+	(pctype) == I40E_FILTER_PCTYPE_NONF_IPV4_OTHER || \
+	(pctype) == I40E_FILTER_PCTYPE_FRAG_IPV6 || \
+	(pctype) == I40E_FILTER_PCTYPE_NONF_IPV6_UDP || \
+	(pctype) == I40E_FILTER_PCTYPE_NONF_UNICAST_IPV6_UDP || \
+	(pctype) == I40E_FILTER_PCTYPE_NONF_MULTICAST_IPV6_UDP || \
+	(pctype) == I40E_FILTER_PCTYPE_NONF_IPV6_TCP || \
+	(pctype) == I40E_FILTER_PCTYPE_NONF_IPV6_TCP_SYN_NO_ACK || \
+	(pctype) == I40E_FILTER_PCTYPE_NONF_IPV6_SCTP || \
+	(pctype) == I40E_FILTER_PCTYPE_NONF_IPV6_OTHER || \
+	(pctype) == I40E_FILTER_PCTYPE_L2_PAYLOAD)
+
+#define I40E_VALID_PCTYPE(pctype) \
+	((pctype) == I40E_FILTER_PCTYPE_FRAG_IPV4 || \
+	(pctype) == I40E_FILTER_PCTYPE_NONF_IPV4_TCP || \
+	(pctype) == I40E_FILTER_PCTYPE_NONF_IPV4_UDP || \
+	(pctype) == I40E_FILTER_PCTYPE_NONF_IPV4_SCTP || \
+	(pctype) == I40E_FILTER_PCTYPE_NONF_IPV4_OTHER || \
+	(pctype) == I40E_FILTER_PCTYPE_FRAG_IPV6 || \
+	(pctype) == I40E_FILTER_PCTYPE_NONF_IPV6_UDP || \
+	(pctype) == I40E_FILTER_PCTYPE_NONF_IPV6_TCP || \
+	(pctype) == I40E_FILTER_PCTYPE_NONF_IPV6_SCTP || \
+	(pctype) == I40E_FILTER_PCTYPE_NONF_IPV6_OTHER || \
+	(pctype) == I40E_FILTER_PCTYPE_L2_PAYLOAD)

@@ -1,0 +1,1 @@
+TAILQ_HEAD(i40e_ethertype_filter_list, i40e_ethertype_filter);

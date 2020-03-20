@@ -1,0 +1,6 @@
+enum pending_msg
+{
+	PFMSG_LINK_CHANGE = 0x1,
+	PFMSG_RESET_IMPENDING = 0x2,
+	PFMSG_DRIVER_CLOSE = 0x4,
+};

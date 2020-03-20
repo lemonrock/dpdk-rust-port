@@ -1,0 +1,1 @@
+LIST_HEAD(res_list, pool_entry);

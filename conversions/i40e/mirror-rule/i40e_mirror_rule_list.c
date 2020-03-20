@@ -1,0 +1,1 @@
+TAILQ_HEAD(i40e_mirror_rule_list, i40e_mirror_rule);

@@ -1,3 +1,50 @@
+# Snabb drivers
+
+* <https://github.com/snabbco/snabb/blob/master/src/apps/intel/intel10g.lua>
+	* Intel® 82599 10 Gigabit Ethernet Controller (Intel considers this a 500 Series Controller): <http://www.intel.co.uk/content/dam/www/public/us/en/documents/datasheets/82599-10-gbe-controller-datasheet.pdf>
+		* Intel® Ethernet Server Adapter X520 Series
+			* Intel® Ethernet Server Adapter X520-DA1 for Open Compute Project (Niantic)
+			* Intel® Ethernet Converged Network Adapter X520-DA2
+			* Intel® Ethernet Server Adapter X520-DA2 for Open Compute Project
+			* Intel® Ethernet Converged Network Adapter X520-LR1
+			* Intel® Ethernet Converged Network Adapter X520-QDA1 (Discontinued)
+			* Intel® Ethernet Converged Network Adapter X520-SR1
+			* Intel® Ethernet Converged Network Adapter X520-SR2
+			* Intel® Ethernet Converged Network Adapter X520-T2 (Discontinued)
+		* Intel® 82599EB 10 Gigabit Ethernet Controller
+		* Intel® 82599EN 10 Gigabit Ethernet Controller
+			* Intel® Ethernet Server Bypass Adapter X520 Series
+				* Intel® Ethernet Server Bypass Adapter X520-LR2 (Discontinued)
+				* Intel® Ethernet Server Bypass Adapter X520-SR2 (Discontinued)
+		* Intel® 82599ES 10 Gigabit Ethernet Controller
+* <https://github.com/snabbco/snabb/blob/master/src/apps/intel_mp/intel_mp.lua>
+	* Intel® Ethernet Controller I350: <http://www.intel.com/content/dam/www/public/us/en/documents/datasheets/ethernet-controller-i350-datasheet.pdf>
+		* Intel® Ethernet Controller I350-AM2
+		* Intel® Ethernet Controller I350-AM4
+		* Intel® Ethernet Controller I350-BT2
+		* Intel® Ethernet Network Adapter I350-T4 for OCP 3.0
+	* Intel® Ethernet Server Adapter I350
+		* Intel® Ethernet Server Adapter I350-F2
+		* Intel® Ethernet Server Adapter I350-F4
+		* Intel® Ethernet Server Adapter I350-T2
+		* Intel® Ethernet Server Adapter I350-T2V2
+		* Intel® Ethernet Server Adapter I350-T4V2
+	* Intel® Ethernet Controller I210: <http://www.intel.com/content/dam/www/public/us/en/documents/datasheets/i210-ethernet-controller-datasheet.pdf>
+		* Intel® Ethernet Controller I210-AT
+		* Intel® Ethernet Controller I210-CL
+		* Intel® Ethernet Controller I210-CS
+		* Intel® Ethernet Controller I210-IS
+		* Intel® Ethernet Controller I210-IT
+	* Intel® Ethernet Server Adapter I210
+		* Intel® Ethernet Server Adapter I210-T1
+
+
+# Other Information
+
+* Intel® Ethernet Controller I211: [Datasheet](https://cdrdv2.intel.com/v1/dl/getcontent/333017)
+	* Intel® Ethernet Controller I211-AT
+
+
 # Which Poll Mode Drivers (PMD) to port?
 
 
@@ -7,6 +54,9 @@
 	* `net/ena`
 		* Amazon Elastic Network Adapator
 * Intel® (a lot of documentation is linked as references [at wikipedia](https://en.wikipedia.org/wiki/Network_interface_controller)).
+	* `net/ice`
+		* 10/25/50/100 Gbps Intel® Ethernet 810 Series Network Adapters
+			* Intel® Ethernet Controller E810
 	* `net/i40e`
 		* 10/25/40 Gbps Intel® Ethernet 700 Series Controllers & Network Adapters
 			* Intel® Ethernet Controller XXV710
@@ -43,9 +93,6 @@
 			* Intel® Ethernet Network Adapter X722 Series
 				* Intel® Ethernet Network Adapter X722-DA2
 				* Intel® Ethernet Network Adapter X722-DA4
-	* `net/ice`
-		* 10/25/50/100 Gbps Intel® Ethernet 810 Series Network Adapters
-			* Intel® Ethernet Controller E810
 	* `net/fm10k`
 		* Intel® FM10000 (FM10K) family of 40GbE/100GbE adapters
 			* Intel® Ethernet Multi-host Controller FM10420
@@ -89,6 +136,39 @@
 		* Intel® 82598 10 Gigabit Ethernet Controller (?Legacy)
 			* Intel® 82598EB 10 Gigabit Ethernet Controller
 				* Intel® 10 Gigabit AT Server Adapter
+	* `net/igb`
+		* Intel® 82580 10 Gigabit Ethernet Controller
+			* Intel® 82580DB 10 Gigabit Ethernet Controller
+			* Intel® 82580EB 10 Gigabit Ethernet Controller
+		* Intel® 82576 Gigabit Ethernet Controller
+			* Intel® 82576EB Gigabit Ethernet Controller
+				* Intel® Gigabit EF Dual Port Server Adapter
+				* Intel® Gigabit ET Dual Port Server Adapter
+			* Intel® Gigabit ET2 Quad Port Server Adapter
+			* (Not Supported: Intel® 82576NS Gigabit Ethernet Controller)
+		* Intel® Ethernet Controller I354
+		* Intel® Ethernet Controller I350
+			* Intel® Ethernet Controller I350-AM2
+			* Intel® Ethernet Controller I350-AM4
+			* Intel® Ethernet Controller I350-BT2
+			* Intel® Ethernet Network Adapter I350-T4 for OCP 3.0
+		* Intel® Ethernet Server Adapter I350
+			* Intel® Ethernet Server Adapter I350-F2
+			* Intel® Ethernet Server Adapter I350-F4
+			* Intel® Ethernet Server Adapter I350-T2
+			* Intel® Ethernet Server Adapter I350-T2V2
+			* Intel® Ethernet Server Adapter I350-T4V2
+		* Intel® Ethernet Controller I211
+			* Intel® Ethernet Controller I211-AT
+		* Intel® Ethernet Controller I210
+			* Intel® Ethernet Controller I210-AT
+			* Intel® Ethernet Controller I210-CL
+			* Intel® Ethernet Controller I210-CS
+			* Intel® Ethernet Controller I210-IS
+			* Intel® Ethernet Controller I210-IT
+		* Intel® Ethernet Server Adapter I210
+			* Intel® Ethernet Server Adapter I210-T1
+		* DH89xx
 * Broadcom
 	* `net/bnxt`
 		* Broadcom BCM5730X NetXtreme-C® Family of Ethernet Network Controllers
@@ -285,39 +365,6 @@
 				* Intel® 82801IBM ICH9M I/O Controller Hub
 				* Intel® 82801IEM ICH9M-E I/O Controller Hub
 				* Intel® ICH9M-SFF ICH9 Controller Hub
-	* `net/igb`
-		* Intel® 82580 10 Gigabit Ethernet Controller
-			* Intel® 82580DB 10 Gigabit Ethernet Controller
-			* Intel® 82580EB 10 Gigabit Ethernet Controller
-		* Intel® 82576 Gigabit Ethernet Controller
-			* Intel® 82576EB Gigabit Ethernet Controller
-				* Intel® Gigabit EF Dual Port Server Adapter
-				* Intel® Gigabit ET Dual Port Server Adapter
-			* Intel® Gigabit ET2 Quad Port Server Adapter
-			* (Not Supported: Intel® 82576NS Gigabit Ethernet Controller)
-		* Intel® Ethernet Controller I354
-		* Intel® Ethernet Controller I350
-			* Intel® Ethernet Controller I350-AM2
-			* Intel® Ethernet Controller I350-AM4
-			* Intel® Ethernet Controller I350-BT2
-			* Intel® Ethernet Network Adapter I350-T4 for OCP 3.0
-		* Intel® Ethernet Server Adapter I350
-			* Intel® Ethernet Server Adapter I350-F2
-			* Intel® Ethernet Server Adapter I350-F4
-			* Intel® Ethernet Server Adapter I350-T2
-			* Intel® Ethernet Server Adapter I350-T2V2
-			* Intel® Ethernet Server Adapter I350-T4V2	
-		* Intel® Ethernet Controller I211
-			* Intel® Ethernet Controller I211-AT
-		* Intel® Ethernet Controller I210
-			* Intel® Ethernet Controller I210-AT
-			* Intel® Ethernet Controller I210-CL
-			* Intel® Ethernet Controller I210-CS
-			* Intel® Ethernet Controller I210-IS
-			* Intel® Ethernet Controller I210-IT
-		* Intel® Ethernet Server Adapter I210
-			* Intel® Ethernet Server Adapter I210-T1
-		* DH89xx
 	* Other (probably not DPDK supported)
 		* Intel® 82597 10 Gigabit Ethernet Controller
 			* Intel® 82597EX 10 Gigabit Ethernet Controller

@@ -1,0 +1,5 @@
+enum i40e_tunnel_iptype
+{
+	I40E_TUNNEL_IPTYPE_IPV4,
+	I40E_TUNNEL_IPTYPE_IPV6,
+};

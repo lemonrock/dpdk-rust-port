@@ -1,0 +1,1 @@
+TAILQ_HEAD(i40e_shaper_profile_list, i40e_tm_shaper_profile);
