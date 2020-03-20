@@ -4,6 +4,17 @@
 #include <rte_common.h>
 #include <rte_memory.h>
 
+#define RTE_MEMZONE_2MB            0x00000001   /**< Use 2MB pages. */
+#define RTE_MEMZONE_1GB            0x00000002   /**< Use 1GB pages. */
+#define RTE_MEMZONE_16MB           0x00000100   /**< Use 16MB pages. */
+#define RTE_MEMZONE_16GB           0x00000200   /**< Use 16GB pages. */
+#define RTE_MEMZONE_256KB          0x00010000   /**< Use 256KB pages. */
+#define RTE_MEMZONE_256MB          0x00020000   /**< Use 256MB pages. */
+#define RTE_MEMZONE_512MB          0x00040000   /**< Use 512MB pages. */
+#define RTE_MEMZONE_4GB            0x00080000   /**< Use 4GB pages. */
+#define RTE_MEMZONE_SIZE_HINT_ONLY 0x00000004   /**< Use available page size */
+#define RTE_MEMZONE_IOVA_CONTIG    0x00100000   /**< Ask for IOVA-contiguous memzone. */
+
 /**
  * A structure describing a memzone, which is a contiguous portion of
  * physical memory identified by a name.

@@ -1,7 +1,70 @@
 #ifndef _RTE_COMMON_H_
 #define _RTE_COMMON_H_
 
+#define RTE_PRIORITY_LOG 101
+#define RTE_PRIORITY_BUS 110
+#define RTE_PRIORITY_CLASS 120
+#define RTE_PRIORITY_LAST 65535
+
+#define RTE_PRIO(prio) \
+	RTE_PRIORITY_ ## prio
+
+/**
+ * Run function before main() with high priority.
+ *
+ * @param func
+ *   Constructor function.
+ * @param prio
+ *   Priority number must be above 100.
+ *   Lowest number is the first to run.
+ */
+#ifndef RTE_INIT_PRIO /* Allow to override from EAL */
+#define RTE_INIT_PRIO(func, prio) \
+static void __attribute__((constructor(RTE_PRIO(prio)), used)) func(void)
+#endif
+
+/**
+ * Run function before main() with low priority.
+ *
+ * The constructor will be run after prioritized constructors.
+ *
+ * @param func
+ *   Constructor function.
+ */
+#define RTE_INIT(func) \
+	RTE_INIT_PRIO(func, LAST)
+
+/**
+ * Run after main() with low priority.
+ *
+ * @param func
+ *   Destructor function name.
+ * @param prio
+ *   Priority number must be above 100.
+ *   Lowest number is the last to run.
+ */
+#ifndef RTE_FINI_PRIO /* Allow to override from EAL */
+#define RTE_FINI_PRIO(func, prio) \
+static void __attribute__((destructor(RTE_PRIO(prio)), used)) func(void)
+#endif
+
+/**
+ * Run after main() with high priority.
+ *
+ * The destructor will be run *before* prioritized destructors.
+ *
+ * @param func
+ *   Destructor function name.
+ */
+#define RTE_FINI(func) \
+	RTE_FINI_PRIO(func, LAST)
+
 #define __rte_always_inline inline __attribute__((always_inline))
+
+/**
+ * short definition to mark a function parameter unused
+ */
+#define __rte_unused __attribute__((__unused__))
 
 /** C extension macro for environments lacking C11 features. */
 #if !defined(__STDC_VERSION__) || __STDC_VERSION__ < 201112L
